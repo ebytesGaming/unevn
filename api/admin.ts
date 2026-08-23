@@ -1,6 +1,7 @@
+/// <reference types="node" />
 import crypto from "node:crypto";
 import { ObjectId } from "mongodb";
-import { ordersCollection } from "./_db";
+import { ordersCollection } from "./_db.js";
 import { Resend } from "resend";
 
 type Response = { status: (code: number) => Response; json: (body: unknown) => void; setHeader: (name: string, value: string) => void };

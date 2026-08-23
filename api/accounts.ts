@@ -1,5 +1,6 @@
+/// <reference types="node" />
 import crypto from "node:crypto";
-import { accountsCollection } from "./_db";
+import { accountsCollection } from "./_db.js";
 import { Resend } from "resend";
 
 type Response = { status: (code: number) => Response; json: (body: unknown) => void };

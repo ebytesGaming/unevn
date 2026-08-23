@@ -1,5 +1,6 @@
+/// <reference types="node" />
 import { Resend } from "resend";
-import { ordersCollection } from "./_db";
+import { ordersCollection } from "./_db.js";
 
 type Order = {
   name: string;
