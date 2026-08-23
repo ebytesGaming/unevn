@@ -7,6 +7,7 @@ import { TestimonialsSection } from "@/components/ui/testimonial-v2";
 import { TaskSteps } from "@/components/ui/task-steps";
 import { Button } from "@/components/ui/button";
 import TextBlockAnimation from "@/components/ui/text-block-animation";
+import MultistepForm from "@/components/ui/multistep-form";
 
 const PROJECT_STEPS = [
   { id: "brief", label: "You send the brief", meta: "Day 0" },
@@ -145,6 +146,10 @@ export default function App() {
 
   if (window.location.pathname === "/start-a-project") {
     return <NotFound />;
+  }
+
+  if (window.location.pathname === "/consultation") {
+    return <MultistepForm />;
   }
 
   return (
