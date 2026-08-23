@@ -1,0 +1,113 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, ui-sans-serif, sans-serif;
+  --font-sans: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, ui-sans-serif, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --color-background: #0A0A0A;
+  --color-surface: #121212;
+  --color-surface-2: #1B1B1B;
+  --color-foreground: #FAFAF8;
+  --color-muted: #9A9994;
+  --color-muted-2: #66655F;
+  --color-border: #242424;
+  --color-brass: #FFFFFF;
+  --color-brass-foreground: #0A0A0A;
+  --color-pine: #C9C9C4;
+  --color-rust: #FAFAF8;
+
+  --color-primary: var(--color-brass);
+  --color-primary-foreground: var(--color-brass-foreground);
+  --color-secondary: var(--color-surface-2);
+  --color-secondary-foreground: var(--color-foreground);
+  --color-destructive: var(--color-rust);
+  --color-destructive-foreground: #0A0A0A;
+  --color-accent: var(--color-surface-2);
+  --color-accent-foreground: var(--color-foreground);
+  --color-input: var(--color-border);
+  --color-ring: var(--color-brass);
+  --color-muted-foreground: var(--color-muted);
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 32px 32px;
+  }
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.045), transparent 34rem);
+}
+
+section {
+  scroll-margin-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+::selection {
+  background: var(--color-brass);
+  color: var(--color-brass-foreground);
+}
