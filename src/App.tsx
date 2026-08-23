@@ -119,20 +119,32 @@ function Footer() {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className="border-t border-border"
     >
-      <div className="mx-auto max-w-6xl px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-2 font-[var(--font-display)] text-base font-semibold text-foreground">
-          <img src="/logo.png" alt="Unevn Studios" className="size-5" />
-          Unevn Studios
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-[1.2fr_1fr_1fr] md:items-start">
+        <div>
+          <div className="flex items-center gap-2 font-[var(--font-display)] text-base font-semibold text-foreground">
+            <img src="/logo.png" alt="Unevn Studios" className="size-5" />
+            Unevn Studios
+          </div>
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-2">
+            Websites, built plainly, priced fairly — from $100 CAD.
+          </p>
         </div>
-        <p className="text-sm text-muted-2 font-mono text-center">
-          Websites, built plainly, priced fairly — from $100 CAD.
-        </p>
-        <a
-          href="#hero"
-          className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors font-mono"
-        >
-          Back to top <ArrowUpRight className="size-3.5" />
-        </a>
+        <div>
+          <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted-2">Contact</p>
+          <div className="mt-4 flex flex-col items-start gap-2 font-mono text-sm">
+            <a href="mailto:hello@unevnstudios.ca" className="text-muted-foreground transition-colors hover:text-foreground">hello@unevnstudios.ca</a>
+            <a href="mailto:legal@unevnstudios.ca" className="text-muted-foreground transition-colors hover:text-foreground">legal@unevnstudios.ca</a>
+          </div>
+        </div>
+        <div className="md:text-right">
+          <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted-2">Explore</p>
+          <div className="mt-4 flex flex-col items-start gap-2 font-mono text-sm md:items-end">
+            <a href="#process" className="text-muted-foreground transition-colors hover:text-foreground">Process</a>
+            <a href="#pricing" className="text-muted-foreground transition-colors hover:text-foreground">Pricing</a>
+            <a href="#testimonials-heading" className="text-muted-foreground transition-colors hover:text-foreground">Clients</a>
+            <a href="#hero" className="inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground">Back to top <ArrowUpRight className="size-3.5" /></a>
+          </div>
+        </div>
       </div>
     </motion.footer>
   );
