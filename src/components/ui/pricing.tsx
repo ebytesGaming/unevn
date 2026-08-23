@@ -51,7 +51,6 @@ const plans: PricingPlan[] = [
 ];
 
 export function Pricing() {
-  const [isMonthly, setIsMonthly] = useState(true);
   const [activePlan, setActivePlan] = useState<string | null>(null);
   const toggleRef = useRef<HTMLDivElement>(null);
 
@@ -93,8 +92,7 @@ export function Pricing() {
         </motion.div>
 
         <div ref={toggleRef} className="mx-auto mt-10 flex w-fit rounded-full border border-border bg-surface/70 p-1 backdrop-blur">
-          <button type="button" onClick={() => setIsMonthly(true)} className={cn("rounded-full px-5 py-2 text-sm transition", isMonthly ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground")}>One-time</button>
-          <button type="button" onClick={() => setIsMonthly(false)} className={cn("rounded-full px-5 py-2 text-sm transition", !isMonthly ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground")}>Flexible</button>
+          <span className="rounded-full bg-foreground px-5 py-2 text-sm text-background">One-time</span>
         </div>
 
         <div className="mt-14 grid gap-5 lg:grid-cols-3">
@@ -113,7 +111,7 @@ export function Pricing() {
               <p className="mt-2 min-h-12 text-sm leading-relaxed text-muted-foreground">{plan.description}</p>
               <div className="mt-8 flex items-baseline gap-1">
                 <span className="text-2xl text-muted-foreground">$</span>
-                <NumberFlow value={isMonthly ? plan.price : plan.yearlyPrice} className="font-[var(--font-display)] text-5xl font-semibold tracking-tight text-foreground" />
+                <NumberFlow value={plan.price} className="font-[var(--font-display)] text-5xl font-semibold tracking-tight text-foreground" />
                 <span className="text-sm text-muted-foreground">CAD</span>
               </div>
               <p className="mt-2 text-xs uppercase tracking-[0.14em] text-muted-2">One-time project price</p>
