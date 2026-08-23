@@ -5,7 +5,7 @@ import { Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PasswordStrength } from "@/components/ui/password-strength";
 
-export function AuthUI({ onCreated }: { onCreated?: () => void }) {
+export function AuthUI({ onCreated, adminPassword = "" }: { onCreated?: () => void; adminPassword?: string }) {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -13,7 +13,7 @@ export function AuthUI({ onCreated }: { onCreated?: () => void }) {
   const submit = async (event: React.FormEvent) => {
     event.preventDefault();
     setMessage("");
-    const result = await fetch("/api/accounts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...form, password }) });
+    const result = await fetch("/api/accounts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...form, password, adminPassword }) });
     const body = await result.json() as { error?: string };
     if (!result.ok) return setMessage(body.error || "Could not create account.");
     setMessage("Account created."); setForm({ name: "", email: "" }); setPassword(""); onCreated?.();
