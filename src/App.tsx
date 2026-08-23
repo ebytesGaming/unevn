@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { WaitlistHero } from "@/components/ui/waitlist-hero";
-import { Pricing } from "@/components/ui/single-pricing-card-1";
+import { Pricing } from "@/components/ui/pricing";
 import { TestimonialsSection } from "@/components/ui/testimonial-v2";
 import { TaskSteps } from "@/components/ui/task-steps";
 import { Button } from "@/components/ui/button";
@@ -65,7 +65,7 @@ function NavBar() {
           <a href="#testimonials-heading" className="hover:text-foreground transition-colors">Clients</a>
         </nav>
         <Button size="sm" asChild>
-          <a href="/start-a-project">Start a project</a>
+          <a href="#pricing">Start a project</a>
         </Button>
       </div>
     </motion.header>
