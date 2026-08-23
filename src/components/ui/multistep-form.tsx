@@ -115,8 +115,8 @@ export default function MultistepForm() {
     return (
       <div className="mx-auto flex min-h-[60vh] max-w-xl flex-col items-center justify-center px-6 text-center">
         <div className="grid size-16 place-items-center rounded-full bg-white text-black shadow-[0_0_50px_rgba(255,255,255,0.2)]"><Check /></div>
-        <h1 className="mt-6 font-[var(--font-display)] text-4xl font-semibold">Request ready to send</h1>
-        <p className="mt-4 text-muted-foreground">Your email app should open with the project details addressed to alie@mulgrave.com.</p>
+        <h1 className="mt-6 font-[var(--font-display)] text-4xl font-semibold">Request confirmed</h1>
+        <p className="mt-4 text-muted-foreground">Your confirmation has been sent, and the Unevn team has received your project details.</p>
         <Button asChild className="mt-8 rounded-full"><a href="/">Return home</a></Button>
       </div>
     );
