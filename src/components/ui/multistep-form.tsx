@@ -56,6 +56,8 @@ export default function MultistepForm() {
   const [formData, setFormData] = useState<FormData>(initialData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const selectedPlan = new URLSearchParams(window.location.search).get("plan") || "Not specified";
   const today = new Date();
   const minConsultationDate = today.toISOString().split("T")[0];
   const maxConsultationDate = new Date(today.getFullYear(), today.getMonth() + 1, 0)
@@ -88,32 +90,25 @@ export default function MultistepForm() {
     if (valid() && currentStep < steps.length - 1) setCurrentStep((step) => step + 1);
   };
 
-  const submit = (event: FormEvent) => {
+  const submit = async (event: FormEvent) => {
     event.preventDefault();
     setIsSubmitting(true);
-    const subject = encodeURIComponent(`Unevn project request from ${formData.name}`);
-    const body = encodeURIComponent([
-      `Name: ${formData.name}`,
-      `Email: ${formData.email}`,
-      `Company: ${formData.company || "Not provided"}`,
-      `Profession: ${formData.profession}`,
-      `Industry: ${formData.industry}`,
-      `Goal: ${formData.goal}`,
-      `Audience: ${formData.audience || "Not provided"}`,
-      `Style: ${formData.style}`,
-      `Inspiration: ${formData.inspirations || "Not provided"}`,
-      `Budget: ${formData.budget}`,
-      `Timeline: ${formData.timeline}`,
-      `Features: ${formData.features.join(", ") || "None selected"}`,
-      `Additional info: ${formData.additionalInfo || "Not provided"}`,
-      `Consultation date: ${formData.consultationDate || "Skipped"}`,
-    ].join("\n"));
+    setSubmitError("");
 
-    window.setTimeout(() => {
-      window.location.href = `mailto:alie@mulgrave.com?subject=${subject}&body=${body}`;
-      setIsSubmitting(false);
+    try {
+      const result = await fetch("/api/send-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, plan: selectedPlan }),
+      });
+      const response = await result.json() as { error?: string };
+      if (!result.ok) throw new Error(response.error || "Email delivery failed.");
       setSubmitted(true);
-    }, 500);
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : "Email delivery failed. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -153,7 +148,8 @@ export default function MultistepForm() {
                   {currentStep === 6 && <Step title="Want to talk it through?" description="Choose a consultation date this month, or skip it for now."><label className="block space-y-2"><span className="text-sm font-medium">Consultation date <span className="text-muted-foreground">(optional)</span></span><input type="date" value={formData.consultationDate} min={minConsultationDate} max={maxConsultationDate} onChange={(event) => update("consultationDate", event.target.value)} className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-foreground" /></label><p className="mt-4 text-sm leading-relaxed text-muted-foreground">Pick a day that works for a short consultation. We&apos;ll confirm the time by email.</p></Step>}
             </motion.div>
           </AnimatePresence>
-          <div className="mt-10 flex justify-between border-t border-border pt-6"><Button type="button" variant="ghost" onClick={() => setCurrentStep((step) => step - 1)} disabled={currentStep === 0}><ArrowLeft className="mr-2 size-4" />Back</Button>{currentStep < steps.length - 1 ? <Button type="button" onClick={next} disabled={!valid()}>Next<ArrowRight className="ml-2 size-4" /></Button> : <Button type="submit" disabled={isSubmitting}>{isSubmitting ? <Loader2 className="mr-2 size-4 animate-spin" /> : <Check className="mr-2 size-4" />}{isSubmitting ? "Preparing..." : "Send request"}</Button>}</div>
+          {submitError && <p role="alert" className="mt-5 text-sm text-red-400">{submitError}</p>}
+          <div className="mt-10 flex justify-between border-t border-border pt-6"><Button type="button" variant="ghost" onClick={() => setCurrentStep((step) => step - 1)} disabled={currentStep === 0}><ArrowLeft className="mr-2 size-4" />Back</Button>{currentStep < steps.length - 1 ? <Button type="button" onClick={next} disabled={!valid()}>Next<ArrowRight className="ml-2 size-4" /></Button> : <Button type="submit" disabled={isSubmitting}>{isSubmitting ? <Loader2 className="mr-2 size-4 animate-spin" /> : <Check className="mr-2 size-4" />}{isSubmitting ? "Sending..." : "Send request"}</Button>}</div>
         </form>
       </div>
     </main>
