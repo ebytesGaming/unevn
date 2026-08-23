@@ -8,6 +8,7 @@ import { TaskSteps } from "@/components/ui/task-steps";
 import { Button } from "@/components/ui/button";
 import TextBlockAnimation from "@/components/ui/text-block-animation";
 import MultistepForm from "@/components/ui/multistep-form";
+import AdminDashboard from "@/components/ui/admin-dashboard";
 
 const PROJECT_STEPS = [
   { id: "brief", label: "You send the brief", meta: "Day 0" },
@@ -150,6 +151,10 @@ export default function App() {
 
   if (window.location.pathname === "/consultation") {
     return <MultistepForm />;
+  }
+
+  if (window.location.pathname === "/admin") {
+    return <AdminDashboard />;
   }
 
   return (

@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import { ordersCollection } from "./_db";
 
 type Order = {
   name: string;
@@ -42,6 +43,10 @@ export default async function handler(
   }
 
   const resend = new Resend(apiKey);
+  const orders = await ordersCollection();
+  const createdAt = new Date();
+  const savedOrder = { ...order, status: "processed", createdAt };
+  const inserted = await orders.insertOne(savedOrder);
   const details = [
     ["Plan", order.plan || "Not specified"],
     ["Name", order.name],
@@ -78,8 +83,9 @@ export default async function handler(
   ]);
 
   if (result.error) {
+    await orders.deleteOne({ _id: inserted.insertedId });
     return response.status(502).json({ error: "Email delivery failed. Please try again." });
   }
 
-  return response.status(200).json({ ok: true });
+  return response.status(200).json({ ok: true, orderId: inserted.insertedId.toString() });
 }
