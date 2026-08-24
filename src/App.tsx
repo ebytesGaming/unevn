@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import TextBlockAnimation from "@/components/ui/text-block-animation";
 import MultistepForm from "@/components/ui/multistep-form";
 import AdminDashboard from "@/components/ui/admin-dashboard";
+import { AuthForm } from "@/components/ui/sign-in-1";
 
 const PROJECT_STEPS = [
   { id: "brief", label: "You send the brief", meta: "Day 0" },
@@ -66,9 +67,12 @@ function NavBar() {
           <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
           <a href="#testimonials-heading" className="hover:text-foreground transition-colors">Clients</a>
         </nav>
-        <Button size="sm" asChild>
-          <a href="#pricing">Start a project</a>
-        </Button>
+        <div className="flex items-center gap-3">
+          <a href="/login" className="hidden text-sm text-muted-foreground transition-colors hover:text-foreground sm:inline">Sign in</a>
+          <Button size="sm" asChild>
+            <a href="#pricing">Start a project</a>
+          </Button>
+        </div>
       </div>
     </motion.header>
   );
@@ -163,6 +167,10 @@ export default function App() {
 
   if (window.location.pathname === "/consultation") {
     return <MultistepForm />;
+  }
+
+  if (window.location.pathname === "/login") {
+    return <AuthForm plan={new URLSearchParams(window.location.search).get("plan") || "your project"} />;
   }
 
   if (window.location.pathname === "/admin") {

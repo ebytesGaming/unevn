@@ -27,7 +27,7 @@ const plans: PricingPlan[] = [
     description: "A focused, sharp one-page launch.",
     features: ["One custom page", "Responsive design", "Clear handoff", "Launch support"],
     buttonText: "Choose Starter",
-    href: "/consultation?plan=starter",
+    href: "/login?plan=starter",
   },
   {
     name: "Premium",
@@ -36,7 +36,7 @@ const plans: PricingPlan[] = [
     description: "A polished site with room to grow.",
     features: ["Up to three pages", "Custom visual direction", "Motion and interactions", "Two revision rounds"],
     buttonText: "Choose Premium",
-    href: "/consultation?plan=premium",
+    href: "/login?plan=premium",
     isPopular: true,
   },
   {
@@ -46,7 +46,7 @@ const plans: PricingPlan[] = [
     description: "A complete, considered web presence.",
     features: ["Multi-page website", "Advanced interactions", "Content structure", "Priority launch support"],
     buttonText: "Choose Ultimate",
-    href: "/consultation?plan=ultimate",
+    href: "/login?plan=ultimate",
   },
 ];
 
