@@ -77,7 +77,6 @@ function NavBar() {
           <a href="#testimonials-heading" className="hover:text-foreground transition-colors">Clients</a>
         </nav>
         <div className="flex items-center gap-3">
-          <a href="/login" onClick={goToSignIn} className="hidden text-sm text-muted-foreground transition-colors hover:text-foreground sm:inline">Sign in</a>
           <Button size="sm" asChild className="rounded-full">
             <a href="/login" onClick={goToSignIn}>Sign in</a>
           </Button>
