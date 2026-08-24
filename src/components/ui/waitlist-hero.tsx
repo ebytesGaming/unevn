@@ -1,51 +1,15 @@
 "use client"
 
-import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { ArrowDownRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function WaitlistHero() {
   const title = "Welcome to Unevn"
   const subtitle = "A one-person studio building sharp, memorable websites for small businesses and side projects. No agency markup. No bloated process."
-  const canvasRef = useRef<HTMLCanvasElement>(null)
   const { scrollY } = useScroll()
   const ringY = useTransform(scrollY, [0, 900], [0, -120])
   const ringRotate = useTransform(scrollY, [0, 900], [0, 18])
-
-  const fireConfetti = () => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-    canvas.width = canvas.offsetWidth
-    canvas.height = canvas.offsetHeight
-    const particles = Array.from({ length: 50 }, () => ({
-      x: canvas.width / 2,
-      y: canvas.height / 2,
-      vx: (Math.random() - 0.5) * 12,
-      vy: (Math.random() - 2) * 10,
-      life: 100,
-      color: ["#0079da", "#10b981", "#fbbf24", "#f472b6", "#fff"][Math.floor(Math.random() * 5)],
-      size: Math.random() * 4 + 2,
-    }))
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      particles.forEach((particle) => {
-        particle.x += particle.vx
-        particle.y += particle.vy
-        particle.vy += 0.5
-        particle.life -= 2
-        ctx.globalAlpha = Math.max(0, particle.life / 100)
-        ctx.fillStyle = particle.color
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fill()
-      })
-      if (particles.some((particle) => particle.life > 0)) requestAnimationFrame(animate)
-    }
-    animate()
-  }
 
   return (
     <section id="hero" className="relative isolate min-h-screen overflow-hidden bg-[#09090b] px-6 text-white">
@@ -121,11 +85,10 @@ export function WaitlistHero() {
           transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="relative mt-9"
         >
-          <canvas ref={canvasRef} aria-hidden="true" className="pointer-events-none absolute bottom-1/2 left-1/2 z-30 h-96 w-[36rem] -translate-x-1/2 translate-y-1/2" />
           <Button asChild className="h-12 rounded-full px-8 font-mono text-sm shadow-[0_0_35px_rgba(255,255,255,0.12)]">
-            <a href="#pricing" className="group" onClick={fireConfetti}>
-              Get started
-              <ArrowDownRight className="ml-2 size-4 transition-transform duration-300 group-hover:translate-y-1 group-hover:translate-x-1" />
+            <a href="/login" className="group">
+              Sign in
+              <ArrowRight className="ml-2 size-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </Button>
         </motion.div>

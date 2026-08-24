@@ -50,6 +50,14 @@ function ProcessDemo() {
 }
 
 function NavBar() {
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const goToSignIn = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    const destination = event.currentTarget.href;
+    setIsTransitioning(true);
+    window.setTimeout(() => { window.location.href = destination; }, 420);
+  };
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -24 }}
@@ -57,6 +65,7 @@ function NavBar() {
       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
       className="fixed top-0 inset-x-0 z-50 border-b border-white/[0.06] bg-background/65 backdrop-blur-xl supports-[backdrop-filter]:bg-background/45"
     >
+      {isTransitioning && <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="fixed inset-0 z-[100] bg-background" />}
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <a href="#hero" className="flex items-center gap-2 font-[var(--font-display)] text-lg font-semibold tracking-tight text-foreground">
           <img src="/logo.png" alt="Unevn Studios" className="size-6" />
@@ -68,9 +77,9 @@ function NavBar() {
           <a href="#testimonials-heading" className="hover:text-foreground transition-colors">Clients</a>
         </nav>
         <div className="flex items-center gap-3">
-          <a href="/login" className="hidden text-sm text-muted-foreground transition-colors hover:text-foreground sm:inline">Sign in</a>
-          <Button size="sm" asChild>
-            <a href="#pricing">Start a project</a>
+          <a href="/login" onClick={goToSignIn} className="hidden text-sm text-muted-foreground transition-colors hover:text-foreground sm:inline">Sign in</a>
+          <Button size="sm" asChild className="rounded-full">
+            <a href="/login" onClick={goToSignIn}>Sign in</a>
           </Button>
         </div>
       </div>
@@ -161,7 +170,7 @@ export default function App() {
     return () => document.removeEventListener("contextmenu", disableContextMenu);
   }, []);
 
-  if (window.location.pathname === "/start-a-project") {
+  if (["/start-a-project", "/help", "/docs"].includes(window.location.pathname)) {
     return <NotFound />;
   }
 
