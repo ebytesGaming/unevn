@@ -78,6 +78,17 @@ export function Pricing() {
   return (
     <section id="pricing" className="relative overflow-hidden py-28 sm:py-36">
       <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(255,255,255,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.06)_1px,transparent_1px)] [background-size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]" />
+      <div aria-hidden="true" className="absolute inset-0 z-30 pointer-events-auto overflow-hidden">
+        <div className="absolute left-1/2 top-[22%] flex w-[150%] -translate-x-1/2 -rotate-12 items-center justify-center gap-10 bg-[#e7c400] py-3 shadow-[0_8px_30px_rgba(0,0,0,0.45)] sm:top-[28%] sm:py-4">
+          <div className="whitespace-nowrap font-[var(--font-display)] text-sm font-black tracking-[0.24em] text-black sm:text-base">COMING SOON  /  COMING SOON  /  COMING SOON</div>
+        </div>
+        <div className="absolute left-1/2 top-[52%] flex w-[150%] -translate-x-1/2 rotate-12 items-center justify-center gap-10 bg-[#e7c400] py-3 shadow-[0_8px_30px_rgba(0,0,0,0.45)] sm:py-4">
+          <div className="whitespace-nowrap font-[var(--font-display)] text-sm font-black tracking-[0.24em] text-black sm:text-base">COMING SOON  /  COMING SOON  /  COMING SOON</div>
+        </div>
+        <div className="absolute left-1/2 top-[79%] flex w-[150%] -translate-x-1/2 -rotate-6 items-center justify-center gap-10 bg-[#e7c400] py-3 shadow-[0_8px_30px_rgba(0,0,0,0.45)] sm:py-4">
+          <div className="whitespace-nowrap font-[var(--font-display)] text-sm font-black tracking-[0.24em] text-black sm:text-base">COMING SOON  /  COMING SOON  /  COMING SOON</div>
+        </div>
+      </div>
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
