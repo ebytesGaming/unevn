@@ -41,6 +41,13 @@ export default async function handler(request: Request, response: Response) {
     await accounts.deleteOne({ _id: new ObjectId(request.body.accountId) });
     return response.status(200).json({ ok: true });
   }
+  if (action === "delete-order" && request.body?.orderId) {
+    const order = await orders.findOne({ _id: new ObjectId(request.body.orderId) });
+    if (!order) return response.status(404).json({ error: "Order not found" });
+    if (order.status !== "canceled") return response.status(409).json({ error: "Only canceled orders can be removed from logs." });
+    await orders.deleteOne({ _id: new ObjectId(request.body.orderId) });
+    return response.status(200).json({ ok: true });
+  }
   const results = await orders.find({}).sort({ createdAt: -1 }).limit(200).toArray();
   const users = await accounts.find({}, { projection: { passwordHash: 0 } }).sort({ createdAt: -1 }).limit(500).toArray();
   return response.status(200).json({ orders: results.map((order) => ({ ...order, _id: order._id.toString() })), users: users.map((user) => ({ ...user, _id: user._id.toString() })) });
