@@ -10,6 +10,8 @@ import TextBlockAnimation from "@/components/ui/text-block-animation";
 import MultistepForm from "@/components/ui/multistep-form";
 import AdminDashboard from "@/components/ui/admin-dashboard";
 import { AuthForm } from "@/components/ui/sign-in-1";
+import { PixelHero } from "@/components/ui/pixel-perfect-hero";
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 
 const MAINTENANCE_MODE = true;
 
@@ -17,7 +19,7 @@ function MaintenancePage() {
   useEffect(() => {
     const WORDMARK =
       '<svg width="1600" height="300" viewBox="0 0 1600 300" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-      '<text x="800" y="205" text-anchor="middle" fill="#F4F4F0" font-family="-apple-system, BlinkMacSystemFont, \'SF Pro Display\', Helvetica, Arial, sans-serif" font-size="170" font-weight="900" letter-spacing="-4">UNEVEN STUDIOS</text>' +
+      '<text x="800" y="205" text-anchor="middle" fill="#F4F4F0" font-family="-apple-system, BlinkMacSystemFont, \'SF Pro Display\', Helvetica, Arial, sans-serif" font-size="170" font-weight="900" letter-spacing="-4">UNEVN STUDIOS</text>' +
       '</svg>';
 
     const PALETTE = [[255, 255, 255], [226, 232, 240], [191, 205, 225]];
@@ -396,7 +398,7 @@ function MaintenancePage() {
 
       <div className="maintenance-wrap">
         <div className="maintenance-wordmark-wrap">
-          <div className="maintenance-storm" id="storm" role="img" aria-label="Uneven Studios">
+          <div className="maintenance-storm" id="storm" role="img" aria-label="Unevn Studios">
             <canvas id="storm-canvas"></canvas>
           </div>
         </div>
@@ -606,6 +608,58 @@ export default function App() {
 
   if (window.location.pathname === "/admin") {
     return <AdminDashboard />;
+  }
+
+  if (window.location.pathname === "/preview") {
+    return (
+      <>
+        <PixelHero
+          word1="Silent"
+          word2="Precision."
+          description="Interfaces with refined motion. Every calculated detail delivers an elevated digital experience."
+          primaryCta="Explore Design"
+          primaryCtaMobile="Explore"
+          secondaryCta="View GitHub"
+          secondaryCtaMobile="GitHub"
+          githubUrl="https://github.com"
+        />
+        <AnimatedTestimonials
+          testimonials={[
+            {
+              id: 1,
+              name: "Alex Johnson",
+              role: "Full Stack Developer",
+              company: "TechFlow",
+              content:
+                "This starter template saved me weeks of setup time. The Supabase integration is flawless, and the UI components are beautiful and easy to customize. Worth every penny!",
+              rating: 5,
+              avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+            },
+            {
+              id: 2,
+              name: "Sarah Miller",
+              role: "Frontend Engineer",
+              company: "DesignHub",
+              content:
+                "I've used many starter templates, but this one stands out for its clean architecture and attention to detail. The TypeScript support is excellent, and the documentation is comprehensive.",
+              rating: 5,
+              avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+            },
+            {
+              id: 3,
+              name: "Michael Chen",
+              role: "Product Manager",
+              company: "InnovateLabs",
+              content:
+                "Our team was able to launch our MVP in record time thanks to this template. The authentication flow and user management features worked right out of the box. Highly recommended!",
+              rating: 5,
+              avatar: "https://randomuser.me/api/portraits/men/46.jpg",
+            },
+          ]}
+          trustedCompanies={["Google", "Microsoft", "Airbnb", "Spotify", "Netflix"]}
+        />
+      </>
+    );
   }
 
   return (
