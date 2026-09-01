@@ -336,14 +336,18 @@ export function PixelHero({
           {description}
         </p>
 
-        <div className="block md:hidden w-full mt-14 pointer-events-auto">
+        <div className={cn("block md:hidden w-full mt-14 pointer-events-auto transition-all duration-1000 ease-out", isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4")} style={{ transitionDelay: "550ms" }}>
           <div className="text-[11px] uppercase tracking-wider text-muted-foreground/80 font-medium mb-5">
             Trusted by industry leaders
           </div>
           <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_15%,white_85%,transparent)]">
             <div className="flex w-max gap-12 py-1 animate-marquee">
-              <div className="flex gap-12 items-center">{BRAND_LOGOS.map((Logo, i) => <Logo key={i} />)}</div>
-              <div className="flex gap-12 items-center" aria-hidden="true">{BRAND_LOGOS.map((Logo, i) => <Logo key={`c-${i}`} />)}</div>
+              <div className={cn("flex gap-12 items-center transition-all duration-1000 ease-out", isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3")} style={{ transitionDelay: "650ms" }}>
+                {BRAND_LOGOS.map((Logo, i) => <Logo key={i} />)}
+              </div>
+              <div className={cn("flex gap-12 items-center transition-all duration-1000 ease-out", isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3")} style={{ transitionDelay: "800ms" }} aria-hidden="true">
+                {BRAND_LOGOS.map((Logo, i) => <Logo key={`c-${i}`} />)}
+              </div>
             </div>
           </div>
         </div>
@@ -369,13 +373,17 @@ export function PixelHero({
         className={cn("hidden md:flex absolute bottom-8 left-0 right-0 w-full z-10 pointer-events-auto flex-col items-center justify-center gap-4 transition-all duration-1000 transform order-3 md:order-4", isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8")}
         style={{ transitionDelay: "600ms" }}
       >
-        <span className="text-xs uppercase tracking-wider text-muted-foreground/80 font-medium select-none">
+        <span className="text-xs uppercase tracking-wider text-muted-foreground/80 font-medium select-none transition-opacity duration-700 ease-out" style={{ transitionDelay: "740ms", opacity: isLoaded ? 1 : 0 }}>
           Trusted by industry leaders
         </span>
         <div className="relative w-full max-w-5xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_15%,white_85%,transparent)]">
           <div className="flex w-max gap-16 py-3 animate-marquee">
-            <div className="flex gap-16 items-center">{BRAND_LOGOS.map((Logo, i) => <Logo key={i} />)}</div>
-            <div className="flex gap-16 items-center" aria-hidden="true">{BRAND_LOGOS.map((Logo, i) => <Logo key={`c-${i}`} />)}</div>
+            <div className={cn("flex gap-16 items-center transition-all duration-1000 ease-out", isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3")} style={{ transitionDelay: "720ms" }}>
+              {BRAND_LOGOS.map((Logo, i) => <Logo key={i} />)}
+            </div>
+            <div className={cn("flex gap-16 items-center transition-all duration-1000 ease-out", isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3")} style={{ transitionDelay: "880ms" }} aria-hidden="true">
+              {BRAND_LOGOS.map((Logo, i) => <Logo key={`c-${i}`} />)}
+            </div>
           </div>
         </div>
       </div>
