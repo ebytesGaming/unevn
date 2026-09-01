@@ -584,33 +584,9 @@ function Footer() {
 }
 
 export default function App() {
-  if (MAINTENANCE_MODE) {
-    return <MaintenancePage />;
-  }
+  const path = window.location.pathname;
 
-  useEffect(() => {
-    const disableContextMenu = (event: MouseEvent) => event.preventDefault();
-    document.addEventListener("contextmenu", disableContextMenu);
-    return () => document.removeEventListener("contextmenu", disableContextMenu);
-  }, []);
-
-  if (["/start-a-project", "/help", "/docs"].includes(window.location.pathname)) {
-    return <NotFound />;
-  }
-
-  if (window.location.pathname === "/consultation") {
-    return <MultistepForm />;
-  }
-
-  if (window.location.pathname === "/login" || window.location.pathname === "/sign-in") {
-    return <AuthForm plan={new URLSearchParams(window.location.search).get("plan") || "your project"} />;
-  }
-
-  if (window.location.pathname === "/admin") {
-    return <AdminDashboard />;
-  }
-
-  if (window.location.pathname === "/preview") {
+  if (path === "/preview") {
     return (
       <>
         <PixelHero
@@ -660,6 +636,32 @@ export default function App() {
         />
       </>
     );
+  }
+
+  if (MAINTENANCE_MODE) {
+    return <MaintenancePage />;
+  }
+
+  useEffect(() => {
+    const disableContextMenu = (event: MouseEvent) => event.preventDefault();
+    document.addEventListener("contextmenu", disableContextMenu);
+    return () => document.removeEventListener("contextmenu", disableContextMenu);
+  }, []);
+
+  if (["/start-a-project", "/help", "/docs"].includes(path)) {
+    return <NotFound />;
+  }
+
+  if (path === "/consultation") {
+    return <MultistepForm />;
+  }
+
+  if (path === "/login" || path === "/sign-in") {
+    return <AuthForm plan={new URLSearchParams(window.location.search).get("plan") || "your project"} />;
+  }
+
+  if (path === "/admin") {
+    return <AdminDashboard />;
   }
 
   return (
