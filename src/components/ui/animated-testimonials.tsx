@@ -87,7 +87,11 @@ export function AnimatedTestimonials({
   }
 
   return (
-    <section ref={sectionRef} id="testimonials" className={`py-24 overflow-hidden bg-muted/30 ${className || ""}`}>
+    <section
+      ref={sectionRef}
+      id="testimonials"
+      className={`overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.06),_transparent_35%),_#090909] py-24 ${className || ""}`}
+    >
       <div className="px-4 md:px-6">
         <motion.div
           initial="hidden"
@@ -137,7 +141,7 @@ export function AnimatedTestimonials({
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 style={{ zIndex: activeIndex === index ? 10 : 0 }}
               >
-                <div className="bg-card border shadow-lg rounded-xl p-8 h-full flex flex-col">
+                <div className="border border-white/10 bg-[#111111] shadow-[0_18px_50px_rgba(0,0,0,0.45)] rounded-xl p-8 h-full flex flex-col">
                   <div className="mb-6 flex gap-2">
                     {Array(testimonial.rating)
                       .fill(0)
