@@ -590,8 +590,8 @@ export default function App() {
     return (
       <>
         <PixelHero
-          word1="Silent"
-          word2="Precision."
+          word1="Unevn"
+          word2="Studios"
           description="Interfaces with refined motion. Every calculated detail delivers an elevated digital experience."
           primaryCta="Explore Design"
           primaryCtaMobile="Explore"
