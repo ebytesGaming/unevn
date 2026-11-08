@@ -13,7 +13,7 @@ import { AuthForm } from "@/components/ui/sign-in-1";
 import { PixelHero } from "@/components/ui/pixel-perfect-hero";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 
-const MAINTENANCE_MODE = true;
+const MAINTENANCE_MODE = false;
 
 function MaintenancePage() {
   useEffect(() => {
