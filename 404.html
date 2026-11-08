@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UnevnStudios</title>
+<link rel="icon" type="image/png" href="https://www.unevnstudios.ca/logo.png">
+<style>
+  :root { color-scheme: dark; --bg: #0a0a0a; --fg: #fafafa; --muted: #9a9a9a; --line: #2a2a2a; box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  *, *::before, *::after { box-sizing: inherit; }
+  html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--fg);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 32px 24px; }
+  main > * { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--d, 0) * 100ms); }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); filter: blur(6px); } }
+  .code { margin: 0 0 28px; font-size: 1.125rem; letter-spacing: .3em; color: var(--muted); font-weight: 500; }
+  h1 { margin: 0 0 24px; font-size: clamp(2.25rem, 7vw, 4.5rem); font-weight: 800; letter-spacing: -0.045em; line-height: 1.05; }
+  .msg { margin: 0 0 56px; max-width: 38rem; color: var(--muted); font-size: clamp(1rem, 2vw, 1.375rem); line-height: 1.6; }
+  .redirect { margin: 0 0 32px; color: var(--muted); font-size: clamp(.9375rem, 1.8vw, 1.25rem); min-height: 1.5em; }
+  .redirect b { color: var(--fg); font-variant-numeric: tabular-nums; }
+  .actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; height: 56px; padding: 0 40px; border-radius: 14px; font: inherit; font-size: 1.0625rem; font-weight: 600;
+    text-decoration: none; cursor: pointer; transition: transform .2s, background .2s, border-color .2s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:focus-visible { outline: 2px solid rgba(255,255,255,.6); outline-offset: 3px; }
+  .primary { background: #e5e5e5; color: #111; border: 1px solid #e5e5e5; }
+  .primary:hover { background: #fff; }
+  .ghost { background: transparent; color: var(--fg); border: 2px solid var(--line); }
+  .ghost:hover { border-color: #555; }
+  @media (prefers-reduced-motion: reduce) { main > * { animation: none; } }
+</style>
+</head>
+<body>
+<main>
+  <p class="code" style="--d:0">404</p>
+  <h1 style="--d:1">This page does not exist</h1>
+  <p class="msg" style="--d:2">Nothing to see here. We will take you somewhere useful unless you would rather stay.</p>
+  <p class="redirect" id="redirect" style="--d:3" role="status" aria-live="polite">Redirecting to the homepage in <b id="secs">9</b> seconds</p>
+  <div class="actions" style="--d:4">
+    <a class="btn primary" id="go" href="index.html">Go now</a>
+    <button class="btn ghost" id="stay" type="button">Stay on this page</button>
+  </div>
+</main>
+
+<script>
+(function () {
+  var HOME = "index.html"; // homepage to send visitors back to
+  var left = 9;
+  var secs = document.getElementById("secs");
+  var redirect = document.getElementById("redirect");
+  var timer = setInterval(function () {
+    left--;
+    secs.textContent = left;
+    if (left === 1) redirect.lastChild.textContent = " second";
+    if (left <= 0) { clearInterval(timer); window.location.href = HOME; }
+  }, 1000);
+  document.getElementById("stay").addEventListener("click", function () {
+    clearInterval(timer);
+    redirect.textContent = "Redirect cancelled. You can stay as long as you like.";
+  });
+  document.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+})();
+</script>
+</body>
+</html>
