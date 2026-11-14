@@ -13,7 +13,7 @@ import { AuthForm } from "@/components/ui/sign-in-1";
 import { PixelHero } from "@/components/ui/pixel-perfect-hero";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 
-const MAINTENANCE_MODE = false;
+const MAINTENANCE_MODE = true;
 
 function MaintenancePage() {
   useEffect(() => {
@@ -261,11 +261,11 @@ function MaintenancePage() {
     <>
       <style>{`
         :root {
-          --bg: #0c0c0d;
-          --card-border: rgba(244, 244, 240, 0.18);
-          --fg: #f4f4f0;
-          --muted: #9a9a9d;
-          --offline: #e5484d;
+          --bg: #000000;
+          --card-border: rgba(255, 255, 255, 0.22);
+          --fg: #ffffff;
+          --muted: #d1d1d1;
+          --offline: #ff6b6b;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { color-scheme: dark; }
