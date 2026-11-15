@@ -1,136 +1,304 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Unevn Studios — Maintenance</title>
-    <meta name="description" content="Unevn Studios is currently under maintenance." />
-    <style>
-      :root {
-        --bg: #ffffff;
-        --text: #000000;
-        --muted: #333333;
-      }
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UnevnStudios — Premium websites for small businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--logo:url(data:image/png;base64,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);--bg:#fff;--fg:#0a0a0a;--mute:#6b6b6b;--line:#e4e4e4;--soft:#f3f3f1;--sans:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;--serif:'Instrument Serif',Georgia,serif;--ease:cubic-bezier(.2,.8,.2,1);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+em{font-family:var(--serif);font-style:italic;font-weight:400}
+.lg{display:inline-block;aspect-ratio:160/143;background:currentColor;-webkit-mask:var(--logo) center/contain no-repeat;mask:var(--logo) center/contain no-repeat}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+section{padding:110px 0}
+.eyebrow{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin:0 0 18px;font-weight:500}
+h2{font-size:clamp(2.2rem,5.4vw,4.2rem);line-height:1;letter-spacing:-.035em;margin:0 0 20px;font-weight:700}
+.sp .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em}
+.sp .w>span{display:inline-block;transform:translateY(108%);transition:transform .9s var(--ease) calc(var(--i)*.07s)}
+.sp.in .w>span{transform:none}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease) var(--d,0s),transform .9s var(--ease) var(--d,0s)}.rv.in{opacity:1;transform:none}
+/* loader, progress, cursor */
+.ld{position:fixed;inset:0;z-index:100;background:var(--fg);color:#fff;display:grid;place-items:center;animation:cur .9s .95s cubic-bezier(.8,0,.2,1) forwards}
+.ld .lg{width:74px;animation:pu .9s ease-in-out}
+@keyframes pu{0%{transform:scale(.5);opacity:0}50%{transform:scale(1.1);opacity:1}100%{transform:scale(1)}}
+@keyframes cur{to{transform:translateY(-100%);visibility:hidden}}
+.pb{position:fixed;top:0;left:0;right:0;height:3px;background:var(--fg);transform:scaleX(0);transform-origin:0 50%;z-index:50}
+.cur{display:none;position:fixed;top:0;left:0;z-index:90;pointer-events:none;mix-blend-mode:difference}
+.cur i{display:block;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:#fff;transition:transform .3s var(--ease)}
+.cur.big i{transform:scale(1.9)}
+@media(hover:hover){.cur{display:block}}
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:30;background:rgba(255,255,255,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px);transition:transform .5s var(--ease)}
+header.hide{transform:translateY(-100%)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.03em;font-size:1.15rem}
+.brand .lg{width:30px;transition:transform .6s var(--ease)}.brand:hover .lg{transform:rotate(-12deg) scale(1.12)}
+.menu{display:flex;gap:30px;font-size:.95rem}
+.menu a{position:relative;color:var(--mute);transition:.2s}.menu a:hover,.menu a.on{color:var(--fg)}
+.menu a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--fg);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+.menu a:hover::after,.menu a.on::after{transform:scaleX(1);transform-origin:left}
+.pill{background:var(--fg);color:#fff;padding:12px 22px;border-radius:99px;font-weight:500;font-size:.92rem;display:inline-block;transition:transform .3s var(--ease),background .3s}
+.mag{transition:transform .3s var(--ease)}
+/* hero */
+.hero{padding:150px 0 90px;position:relative;overflow:hidden}
+#dots{position:absolute;inset:0;width:100%;height:100%;-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:50px;align-items:center;position:relative}
+.hero h1{font-size:clamp(3rem,7.4vw,6.6rem);line-height:.93;letter-spacing:-.05em;margin:0 0 28px;font-weight:700}
+.hero h1 .l{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.hero h1 .l>span{display:block;transform:translateY(110%);animation:up 1s var(--ease) forwards;animation-delay:calc(1.45s + var(--i)*.14s)}
+@keyframes up{to{transform:none}}
+.fi{opacity:0;transform:translateY(24px);animation:fi 1s var(--ease) forwards;animation-delay:var(--d)}
+@keyframes fi{to{opacity:1;transform:none}}
+.hero p.lead{font-size:1.2rem;color:var(--mute);max-width:480px;margin:0 0 34px}
+.cta{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.ghost{position:relative;font-weight:500;padding-bottom:3px;background:linear-gradient(var(--fg),var(--fg)) 0 100%/100% 2px no-repeat;transition:background-size .4s var(--ease)}.ghost:hover{background-size:0 2px;background-position:100% 100%}
+.facts{display:flex;gap:36px;margin-top:54px;flex-wrap:wrap}
+.facts b{display:block;font-size:1.7rem;letter-spacing:-.03em}.facts span{color:var(--mute);font-size:.88rem}
+.bw{position:relative;transition:transform .25s ease-out;will-change:transform}
+.browser{border:1.5px solid var(--fg);border-radius:18px;background:#fff;box-shadow:14px 14px 0 var(--fg);animation:fl 6s ease-in-out infinite;overflow:hidden}
+@keyframes fl{0%,100%{transform:rotate(2.5deg)}50%{transform:rotate(1deg) translateY(-12px)}}
+.browser .top{display:flex;gap:6px;padding:12px 14px;border-bottom:1.5px solid var(--fg);align-items:center}
+.browser .top i{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--fg)}
+.browser .top u{flex:1;margin-left:10px;height:18px;border:1.5px solid var(--fg);border-radius:9px;text-decoration:none;font-size:.62rem;padding:0 10px;line-height:15px;color:var(--mute)}
+.browser .top u::after{content:"|";animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
+.browser .body{padding:22px}
+.b1{height:130px;background:var(--fg);border-radius:10px;display:flex;align-items:flex-end;padding:16px;color:#fff;font-weight:700;font-size:1.3rem;letter-spacing:-.03em;position:relative;overflow:hidden}
+.b1::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.28),transparent 70%);transform:translateX(-100%);animation:sh 3.4s ease-in-out infinite}
+@keyframes sh{60%,100%{transform:translateX(100%)}}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.row3 i{height:64px;background:var(--soft);border-radius:8px;border:1px solid var(--line);animation:pl 2.4s ease-in-out infinite}.row3 i:nth-child(2){animation-delay:.3s}.row3 i:nth-child(3){animation-delay:.6s}
+@keyframes pl{50%{background:#e2e2e0}}
+.ln{height:9px;background:var(--line);border-radius:5px;margin-top:12px}.ln.s{width:55%}
+.chip{position:absolute;background:#fff;border:1.5px solid var(--fg);border-radius:99px;padding:8px 16px;font-size:.85rem;font-weight:500;box-shadow:4px 4px 0 var(--fg);animation:fc 5s ease-in-out infinite}
+.chip.a{left:-26px;bottom:60px}.chip.b{right:-10px;top:-18px;animation-delay:-2s}
+@keyframes fc{50%{transform:translateY(-14px) rotate(-3deg)}}
+/* about */
+.about{display:grid;grid-template-columns:1fr 2fr;gap:50px}
+.about p.big{font-size:clamp(1.7rem,3.6vw,2.9rem);line-height:1.12;letter-spacing:-.03em;margin:0;font-weight:500}
+.about .g{color:#b5b5b5}
+/* work */
+.list a{display:grid;grid-template-columns:70px 1fr 200px 60px;align-items:center;gap:16px;padding:30px 20px;border-top:1px solid var(--line);position:relative;overflow:hidden;transition:color .4s,padding .4s var(--ease);font-size:clamp(1.3rem,3vw,2.4rem);letter-spacing:-.03em;font-weight:500}
+.list a:last-child{border-bottom:1px solid var(--line)}
+.list a::before{content:"";position:absolute;inset:0;background:var(--fg);transform:translateY(101%);transition:transform .5s var(--ease);z-index:-1}
+.list a:hover::before{transform:none}
+.list a small{font-size:.9rem;color:var(--mute);letter-spacing:0;font-weight:400;transition:color .3s}
+.list a em{font-size:1.2em}
+.list a:hover{color:#fff;padding-left:40px}.list a:hover small{color:#aaa}
+.list a .ar{text-align:right;transition:transform .4s var(--ease)}.list a:hover .ar{transform:translate(-8px,-6px) rotate(45deg)}
+.list{isolation:isolate}
+.pv{position:fixed;top:0;left:0;z-index:40;pointer-events:none;display:none}
+@media(hover:hover){.pv{display:block}}
+.pi{width:220px;height:150px;border-radius:16px;background:var(--fg);color:#fff;display:grid;place-items:center;font-weight:700;letter-spacing:-.03em;text-align:center;padding:14px;border:1.5px solid #fff;box-shadow:0 20px 50px rgba(0,0,0,.3);transform:scale(0);transition:transform .35s var(--ease)}
+.pv.on .pi{transform:scale(1)}
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:14px}
+.bx{border:1.5px solid var(--fg);border-radius:22px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;background:#fff;transition:transform .2s ease-out,box-shadow .3s,opacity .9s var(--ease) var(--d,0s)}
+.bx:hover{box-shadow:8px 8px 0 var(--fg)}
+.bx h3{margin:0;font-size:1.6rem;letter-spacing:-.03em;line-height:1.05}.bx p{margin:0;color:var(--mute);font-size:.96rem}
+.bx .n{font-family:var(--serif);font-style:italic;font-size:1.6rem;display:inline-block;transition:transform .5s var(--ease)}.bx:hover .n{transform:rotate(-12deg) scale(1.3)}
+.bx.k{background:var(--fg);color:#fff}.bx.k p{color:#bbb}.bx.k:hover{box-shadow:8px 8px 0 #999}
+.bx.w2{grid-column:span 2}.bx.h2{grid-row:span 2}.bx.s{background:var(--soft);border-color:var(--line)}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);position:relative}
+.steps::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--fg);transform:scaleX(0);transform-origin:left;transition:transform 1.6s var(--ease)}.steps.in::before{transform:none}
+.steps div{padding:30px 30px 10px 0}.steps div+div{padding-left:30px;border-left:1px solid var(--line)}
+.steps b{display:inline-block;font-family:var(--serif);font-style:italic;font-size:3.4rem;font-weight:400;line-height:1;transform:scale(.4) rotate(-20deg);opacity:0;transition:.9s var(--ease) calc(.3s + var(--d))}.steps.in b{transform:none;opacity:1}
+.steps h3{margin:10px 0 6px;font-size:1.4rem;letter-spacing:-.02em}.steps p{margin:0;color:var(--mute)}
+/* pricing */
+.pk{display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:start}
+.opts{position:relative}
+.po{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;width:100%;height:96px;padding:0 26px;cursor:pointer;position:relative;z-index:1;font-size:1.8rem;letter-spacing:-.03em;font-weight:500;border-bottom:1px solid var(--line);transition:color .4s;font-family:var(--sans)}
+.po small{font-size:.9rem;opacity:.6;font-weight:400;letter-spacing:0}
+.po.on{color:#fff;border-color:transparent}
+.ind{position:absolute;left:0;right:0;top:0;height:96px;background:var(--fg);border-radius:18px;transition:transform .55s var(--ease)}
+.det{border:1.5px solid var(--fg);border-radius:26px;padding:44px;min-height:380px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:10px 10px 0 var(--fg)}
+.det .amt{font-size:clamp(4.5rem,10vw,8rem);letter-spacing:-.06em;font-weight:700;line-height:.9}
+.det .amt small{font-size:1.1rem;letter-spacing:0;color:var(--mute);font-weight:400;margin-left:8px}
+.det p{font-size:1.15rem;margin:22px 0 10px;max-width:440px}
+.det .inc{color:var(--mute);font-size:.95rem;margin:0}
+.det .tx.sw{animation:sw .6s var(--ease)}
+@keyframes sw{from{opacity:0;transform:translateY(16px)}}
+.note{margin-top:30px;color:var(--mute)}
+/* faq */
+.faqg{display:grid;grid-template-columns:1fr 1.6fr;gap:60px}
+.q{border-top:1px solid var(--line)}.q:last-child{border-bottom:1px solid var(--line)}
+.q button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;gap:16px;padding:26px 0;cursor:pointer;font-size:1.25rem;font-weight:500;letter-spacing:-.02em;font-family:var(--sans);transition:padding .4s var(--ease)}
+.q button:hover{padding-left:12px}
+.q button span{font-size:1.6rem;line-height:1;transition:transform .4s var(--ease)}.q.open button span{transform:rotate(135deg)}
+.q div{max-height:0;overflow:hidden;opacity:0;transition:max-height .5s var(--ease),opacity .5s;color:var(--mute)}.q.open div{max-height:200px;opacity:1;padding-bottom:26px}
+/* contact */
+.ct{margin:20px 28px 0;max-width:1184px;margin-inline:auto;border-radius:38px;background:var(--soft);padding:110px 28px;text-align:center;position:relative;overflow:hidden}
+.ct::before,.ct::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(#d9d9d6,transparent 65%);animation:bl2 11s ease-in-out infinite alternate}
+.ct::before{left:-120px;top:-140px}.ct::after{right:-120px;bottom:-160px;animation-delay:-5s}
+@keyframes bl2{to{transform:translate(160px,90px) scale(1.25)}}
+.ct>*{position:relative;z-index:1}
+.ct h2{font-size:clamp(2.6rem,8vw,6.6rem);letter-spacing:-.05em;margin:0 auto;max-width:900px}
+.mail{display:inline-block;margin-top:34px;font-size:clamp(1.2rem,3vw,2rem);font-weight:500;background:linear-gradient(var(--fg),var(--fg)) 0 100%/100% 2px no-repeat;padding-bottom:4px;transition:background-size .5s var(--ease)}.mail:hover{background-size:0 2px;background-position:100% 100%}
+.badge{position:absolute!important;right:6%;bottom:12%;width:130px;height:130px;display:grid;place-items:center;border-radius:50%;background:var(--fg);color:#fff}
+.badge svg{position:absolute;inset:0;width:100%;height:100%;animation:sp 14s linear infinite}
+.badge text{fill:#fff;font-size:10.5px;font-weight:500;letter-spacing:.5px}
+.badge b{font-size:1.6rem;transition:transform .4s var(--ease)}.badge:hover b{transform:rotate(45deg)}
+@keyframes sp{to{transform:rotate(360deg)}}
+/* footer */
+footer{padding:90px 0 0;overflow:hidden}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px;padding-bottom:70px}
+.fg h4{margin:0 0 16px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:500}
+.fg a.l{display:block;width:max-content;padding:4px 0;background:linear-gradient(var(--fg),var(--fg)) 0 100%/0 1px no-repeat;transition:background-size .4s var(--ease)}.fg a.l:hover{background-size:100% 1px}
+.fg p{color:var(--mute);max-width:260px;margin:14px 0 0}
+.wm{display:flex;justify-content:center;overflow:hidden;font-size:clamp(2.6rem,14.2vw,13rem);font-weight:700;letter-spacing:-.07em;line-height:.95;padding:0 0 .04em;border-top:1px solid var(--line);padding-top:30px}
+.wm span{display:inline-block;transform:translateY(110%);-webkit-text-stroke:1.5px var(--fg);color:transparent;transition:transform 1s var(--ease) calc(var(--i)*.06s),color .35s}
+.wm.in span{transform:none}.wm span:hover{color:var(--fg)}
+.legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:18px 0 28px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
+@media(max-width:900px){.menu{display:none}.hero .wrap,.about,.faqg,.pk{grid-template-columns:1fr}.bento{grid-template-columns:1fr 1fr}.bx.w2{grid-column:span 2}.steps{grid-template-columns:1fr}.steps div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}.fg{grid-template-columns:1fr 1fr}.list a{grid-template-columns:40px 1fr 40px}.list a small:last-of-type{display:none}.browser{box-shadow:8px 8px 0 var(--fg)}.chip.a{left:0}.badge{position:relative!important;right:auto;bottom:auto;margin:40px auto 0}.det{padding:28px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.fi,.sp .w>span,.hero h1 .l>span,.wm span{opacity:1;transform:none}.ld{display:none}}
+</style>
+</head>
+<body>
+<div class="ld"><span class="lg"></span></div>
+<div class="pv"><div class="pi"></div></div>
+<header><div class="wrap">
+  <a class="brand" href="#top"><span class="lg"></span>UnevnStudios</a>
+  <nav class="menu"><a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav>
+  <a class="pill mag" href="#contact">Start a project</a>
+</div></header>
 
-      * { box-sizing: border-box; }
+<main id="top">
+<section class="hero"><canvas id="dots"></canvas><div class="wrap">
+  <div>
+    <p class="eyebrow fi" style="--d:1.3s">Website design studio</p>
+    <h1><span class="l" style="--i:0"><span style="--i:0">Small business.</span></span><span class="l"><span style="--i:1"><em>Premium</em> website.</span></span></h1>
+    <p class="lead fi" style="--d:2s">We design and build polished, fast websites for small businesses that deserve to look as good as the big players.</p>
+    <div class="cta fi" style="--d:2.15s"><a class="pill mag" href="#contact">Get a quote</a><a class="ghost" href="#work">See our work →</a></div>
+    <div class="facts fi" style="--d:2.3s"><div><b><span data-n="100" data-p="$" data-s="+">$100+</span></b><span>CAD starting price</span></div><div><b><span data-n="100" data-s="%">100%</span></b><span>custom designed</span></div><div><b>Mobile</b><span>first, always</span></div></div>
+  </div>
+  <div class="bw fi" style="--d:1.8s" data-bw>
+    <div class="browser"><div class="top"><i></i><i></i><i></i><u>yourbusiness.ca</u></div>
+    <div class="body"><div class="b1">Your brand, online.</div><div class="row3"><i></i><i></i><i></i></div><div class="ln"></div><div class="ln s"></div></div></div>
+    <span class="chip a">Fast loading</span><span class="chip b">Looks premium</span>
+  </div>
+</div></section>
 
-      html, body {
-        margin: 0;
-        min-height: 100%;
-        background: var(--bg);
-        color: var(--text);
-        font-family: Inter, "Segoe UI", sans-serif;
-      }
+<section id="about"><div class="wrap about">
+  <p class="eyebrow">About us</p>
+  <p class="big sp">UnevnStudios is a website design company for smaller businesses. We skip the bloated agency fees and the templates that look like everyone else’s.</p>
+</div></section>
 
-      body {
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        background: #fff;
-      }
+<section id="work" style="padding-top:20px"><div class="wrap">
+  <p class="eyebrow">Selected work</p><h2 class="sp">Recent projects</h2>
+  <div class="list rv" style="margin-top:46px">
+    <a href="#contact" data-t="Mulgrave M Store"><small>01</small><span>Mulgrave <em>M</em> Store</span><small>Shopify redesign</small><span class="ar">↗</span></a>
+    <a href="#contact" data-t="Cafe Local"><small>02</small><span>Cafe <em>Local</em></span><small>Restaurant site</small><span class="ar">↗</span></a>
+    <a href="#contact" data-t="Peak Fitness"><small>03</small><span>Peak <em>Fitness</em></span><small>Gym and booking</small><span class="ar">↗</span></a>
+    <a href="#contact" data-t="North Dental"><small>04</small><span>North <em>Dental</em></span><small>Clinic website</small><span class="ar">↗</span></a>
+    <a href="#contact" data-t="Harbor Legal"><small>05</small><span>Harbor <em>Legal</em></span><small>Services site</small><span class="ar">↗</span></a>
+  </div>
+</div></section>
 
-      main {
-        width: min(680px, calc(100vw - 18px));
-        text-align: center;
-        padding: 8px 8px 10px;
-      }
+<section id="services" style="padding-top:20px"><div class="wrap">
+  <p class="eyebrow">What we do</p><h2 class="sp">Built to bring in customers.</h2>
+  <div class="bento" style="margin-top:46px">
+    <div class="bx k w2 h2 rv" data-tilt><span class="n">01</span><div><h3 style="font-size:2.6rem">Custom<br>Websites</h3><p style="margin-top:12px">Hand-designed, mobile-first sites that load fast and make a strong first impression.</p></div></div>
+    <div class="bx w2 rv" style="--d:.12s" data-tilt><span class="n">02</span><div><h3>Redesigns</h3><p>A fresh, modern look for your outdated site.</p></div></div>
+    <div class="bx s rv" style="--d:.24s" data-tilt><span class="n">03</span><div><h3>Online Stores</h3><p>Shopify and e-commerce.</p></div></div>
+    <div class="bx rv" style="--d:.36s" data-tilt><span class="n">04</span><div><h3>Consults</h3><p>Plan before we build.</p></div></div>
+  </div>
+</div></section>
 
-      .icon-wrap {
-        width: 54px;
-        height: 54px;
-        margin: 0 auto 10px;
-        border-radius: 12px;
-        background: #f4f4f4;
-        display: grid;
-        place-items: center;
-      }
+<section id="process" style="padding-top:20px"><div class="wrap">
+  <p class="eyebrow">How it works</p><h2 class="sp">Three simple steps.</h2>
+  <div class="steps" style="margin-top:46px">
+    <div style="--d:0s"><b>1</b><h3>Chat</h3><p>Tell us about your business and what you need from your site.</p></div>
+    <div style="--d:.25s"><b>2</b><h3>Design and build</h3><p>We send a preview, refine it with you, and build the full site.</p></div>
+    <div style="--d:.5s"><b>3</b><h3>Launch</h3><p>Your site goes live, ready to impress visitors on any device.</p></div>
+  </div>
+</div></section>
 
-      .icon {
-        width: 24px;
-        height: 24px;
-        position: relative;
-        display: block;
-      }
+<section id="pricing" style="padding-top:20px"><div class="wrap">
+  <p class="eyebrow">Pricing</p><h2 class="sp">What it costs.</h2>
+  <div class="pk" style="margin-top:46px">
+    <div class="opts rv"><div class="ind"></div>
+      <button class="po" data-i="0">Starter<small>one page</small></button>
+      <button class="po on" data-i="1">Business<small>up to 5 pages</small></button>
+      <button class="po" data-i="2">Premium<small>the full build</small></button>
+      <p class="note">Need something different? Message us for a custom quote.</p>
+    </div>
+    <div class="det rv" style="--d:.15s"><div class="tx"><div class="amt"><span id="pn">250</span><small>CAD</small></div><p id="pd"></p></div><p class="inc tx" id="pl"></p></div>
+  </div>
+</div></section>
 
-      .icon::before,
-      .icon::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        margin: auto;
-      }
+<section id="faq" style="padding-top:20px"><div class="wrap faqg">
+  <div><p class="eyebrow">FAQ</p><h2 class="sp">Good questions.</h2><p style="color:var(--mute)">What clients usually ask before we start.</p></div>
+  <div class="rv">
+    <div class="q open"><button>What does UnevnStudios offer?<span>+</span></button><div>Custom websites, redesigns, and online stores for small businesses.</div></div>
+    <div class="q"><button>Who do you work with?<span>+</span></button><div>Local shops, restaurants, creators, and growing businesses that want a premium site without agency prices.</div></div>
+    <div class="q"><button>How long does a project take?<span>+</span></button><div>Most sites are ready within one to two weeks, depending on size.</div></div>
+    <div class="q"><button>Can you redesign my current site?<span>+</span></button><div>Yes. We can keep what works and rebuild the rest with a modern look.</div></div>
+  </div>
+</div></section>
 
-      .icon::before {
-        width: 14px;
-        height: 14px;
-        border: 3px solid #000;
-        border-radius: 50%;
-        border-top-color: transparent;
-        border-left-color: transparent;
-        transform: rotate(45deg);
-      }
+<div class="wrap"><div class="ct" id="contact">
+  <p class="eyebrow">Contact</p>
+  <h2 class="sp">Got a business? Let’s build your site.</h2>
+  <a class="mail" href="mailto:hello@unevnstudios.ca">hello@unevnstudios.ca</a>
+  <a class="badge mag" href="mailto:hello@unevnstudios.ca" aria-label="Start a project"><svg viewBox="0 0 120 120"><defs><path id="c" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text><textPath href="#c" textLength="283">START A PROJECT • START A PROJECT • </textPath></text></svg><b>→</b></a>
+</div></div>
+</main>
 
-      .icon::after {
-        width: 22px;
-        height: 6px;
-        background: transparent;
-        border: 3px solid #000;
-        border-radius: 999px;
-        transform: rotate(-45deg) translate(8px, -6px);
-      }
+<footer><div class="wrap">
+  <div class="fg">
+    <div><a class="brand" href="#top"><span class="lg"></span>UnevnStudios</a><p>Premium websites for smaller businesses.</p></div>
+    <div><h4>Explore</h4><a class="l" href="#work">Work</a><a class="l" href="#services">Services</a><a class="l" href="#process">Process</a><a class="l" href="#pricing">Pricing</a></div>
+    <div><h4>Social</h4><a class="l" href="#">Discord</a><a class="l" href="#">Instagram</a><a class="l" href="#">TikTok</a><a class="l" href="#">X</a></div>
+    <div><h4>Contact</h4><a class="l" href="mailto:hello@unevnstudios.ca">Email us</a><a class="l" href="#faq">FAQ</a><a class="l" href="#top">Back to top ↑</a></div>
+  </div>
+  <div class="legal"><span>© 2026 UnevnStudios. All rights reserved.</span><span>hello@unevnstudios.ca</span></div>
+</div></footer>
 
-      .tag {
-        display: inline-block;
-        background: #f1f1f1;
-        color: #111;
-        padding: 7px 12px;
-        border-radius: 10px;
-        font-size: 13px;
-        font-weight: 600;
-        margin-bottom: 10px;
-      }
-
-      h1 {
-        margin: 0 0 12px;
-        font-size: clamp(1.9rem, 3.2vw, 3.3rem);
-        line-height: 0.96;
-        letter-spacing: -0.06em;
-        font-weight: 800;
-      }
-
-      p {
-        margin: 0 auto;
-        max-width: 540px;
-        color: var(--muted);
-        font-size: clamp(0.9rem, 1.3vw, 1.15rem);
-        line-height: 1.35;
-        font-weight: 400;
-      }
-
-      .estimate {
-        margin-top: 12px;
-        font-size: clamp(1rem, 1.6vw, 1.55rem);
-        font-weight: 700;
-        letter-spacing: -0.04em;
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <div class="icon-wrap" aria-hidden="true">
-        <span class="icon"></span>
-      </div>
-
-      <div class="tag">Scheduled maintenance</div>
-
-      <h1>We&apos;ll be right back</h1>
-
-      <p>
-        Unevn Studios is down for planned maintenance while we ship some improvements.
-        Everything should be back online shortly — thank you for your patience.
-      </p>
-
-      <div class="estimate">Estimated back by 2:00 PM UTC</div>
-    </main>
-  </body>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},$$=function(s){return[].slice.call(document.querySelectorAll(s))};
+var fine=matchMedia('(hover:hover)').matches;
+$$('.sp').forEach(function(h){h.innerHTML=h.textContent.trim().split(/\s+/).map(function(w,i){return'<span class="w"><span style="--i:'+i+'">'+w+'</span></span>'}).join(' ')});
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.15});
+$$('.rv,.sp,.steps,.wm').forEach(function(el){io.observe(el)});
+/* counters */
+$$('[data-n]').forEach(function(el){var n=+el.dataset.n,p=el.dataset.p||'',s=el.dataset.s||'',t0;el.textContent=p+'0'+s;
+setTimeout(function(){(function f(t){t0=t0||t;var k=Math.min(1,(t-t0)/1400);el.textContent=p+Math.round(n*(1-Math.pow(1-k,3)))+s;if(k<1)requestAnimationFrame(f)})(performance.now())},2300)});
+/* scroll */
+var hd=$('header'),ly=0;
+addEventListener('scroll',function(){var y=scrollY;hd.classList.toggle('hide',y>ly&&y>300);ly=y},{passive:true});
+/* magnetic + tilt */
+$$('.mag').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+(e.clientX-r.left-r.width/2)*.3+'px,'+(e.clientY-r.top-r.height/2)*.4+'px)'});b.addEventListener('mouseleave',function(){b.style.transform=''})});
+function tilt(t,k){t.addEventListener('mousemove',function(e){var r=t.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.transform='perspective(900px) rotateY('+x*k+'deg) rotateX('+-y*k+'deg)'});t.addEventListener('mouseleave',function(){t.style.transform=''})}
+$$('[data-tilt]').forEach(function(t){tilt(t,10)});tilt($('[data-bw]'),14);
+/* work preview */
+var pv=$('.pv'),pi=$('.pi');
+$$('.list a').forEach(function(a){a.addEventListener('mouseenter',function(){pi.textContent=a.dataset.t;pv.classList.add('on')});a.addEventListener('mouseleave',function(){pv.classList.remove('on')});a.addEventListener('mousemove',function(e){pv.style.transform='translate('+(e.clientX+28)+'px,'+(e.clientY-80)+'px) rotate(-5deg)'})});
+/* faq */
+$$('.q button').forEach(function(b){b.addEventListener('click',function(){var q=b.parentNode,o=q.classList.contains('open');$$('.q').forEach(function(x){x.classList.remove('open')});if(!o)q.classList.add('open')})});
+/* nav highlight */
+var ls=$$('.menu a');
+var so=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)ls.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+x.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});
+['work','services','process','pricing','faq'].forEach(function(id){so.observe(document.getElementById(id))});
+/* pricing */
+var P=[{p:100,d:'A clean one-page site to get your business online fast.',l:'One page, mobile friendly, contact form.'},{p:250,d:'A custom-designed site with the pages most businesses need.',l:'Up to 5 pages, custom design, basic SEO, one round of revisions.'},{p:500,d:'The full build: a complete site or online store, with extra polish.',l:'Full site or store, animations, priority support, unlimited revisions.'}];
+var po=$$('.po'),ind=$('.ind'),pn=$('#pn'),shown=250,tx=$$('.tx');
+function pick(i){po.forEach(function(b,j){b.classList.toggle('on',i===j)});ind.style.transform='translateY('+i*100+'%)';$('#pd').textContent=P[i].d;$('#pl').textContent=P[i].l;
+tx.forEach(function(t){t.classList.remove('sw');void t.offsetWidth;t.classList.add('sw')});
+var a=shown,b=P[i].p,t0;(function f(t){t0=t0||t;var k=Math.min(1,(t-t0)/600);shown=Math.round(a+(b-a)*(1-Math.pow(1-k,3)));pn.textContent=shown;if(k<1)requestAnimationFrame(f)})(performance.now())}
+po.forEach(function(b,i){b.addEventListener('click',function(){pick(i)})});pick(1);tx.forEach(function(t){t.classList.remove('sw')});
+/* hero dots */
+var cv=$('#dots'),x=cv.getContext('2d'),W,H,px=-999,py=-999,t=0;
+function rs(){var r=cv.parentNode.getBoundingClientRect(),d=devicePixelRatio||1;W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;x.setTransform(d,0,0,d,0,0)}
+rs();addEventListener('resize',rs);
+cv.parentNode.addEventListener('mousemove',function(e){var r=cv.getBoundingClientRect();px=e.clientX-r.left;py=e.clientY-r.top});
+(function f(){x.clearRect(0,0,W,H);t+=.02;for(var i=16;i<W;i+=34)for(var j=16;j<H;j+=34){var dx=i-px,dy=j-py,k=Math.max(0,1-Math.sqrt(dx*dx+dy*dy)/170),w=(Math.sin(i*.01+t)+Math.cos(j*.012+t))*.5;x.fillStyle='rgba(10,10,10,'+(.1+.06*w+.7*k).toFixed(2)+')';x.beginPath();x.arc(i,j,1.3+3*k,0,6.283);x.fill()}requestAnimationFrame(f)})();
+})();
+</script>
+</body>
 </html>
